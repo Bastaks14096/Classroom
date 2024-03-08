@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Information</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .student-info {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 300px;
+            width: 100%;
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .button-container {
+            margin-top: 20px;
+        }
+
+        .enter-classroom-btn {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .enter-classroom-btn:hover {
+            background-color: #45a049;
+        }
+        img {
+            border-radius: 50%; /* Make the image circular */
+            max-width: 100px; /* Adjust the maximum width as needed */
+            height: auto; /* Maintain the aspect ratio */
+            display: block;
+            margin: 0 auto; /* Center the image */
+        }
+    </style>
+</head>
+<body>
+    <div class="student-info">
+        <h2>Student Information</h2>
+        <img src="img/people.png" alt="">
+        <label for="student-id">รหัสประจำตัว:</label>
+        <p id="student-id">123456</p>
+
+        <label for="student-name">ชื่อ-นามสกุล:</label>
+        <p id="student-name">John Doe</p>
+
+        <label for="student-email">อีเมลล์:</label>
+        <p id="student-email">john.doe@example.com</p>
+
+        <div class="button-container">
+            <button class="enter-classroom-btn">เข้าสู่ห้องเรียน</button>
+        </div>
+    </div>
+</body>
+</html>
