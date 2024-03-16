@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>login</title>
+    <title>Student</title>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <link
       href="https://cdn.jsdelivr.net/npm/vuetify@3.4.10/dist/vuetify.min.css"
@@ -26,30 +26,15 @@
                 <thead>
                   <tr>
                     <form action="">
+                    <v-text-field v-model="text" label="รหัสเข้าห้องเรียน" type="code"></v-text-field>
+                    <v-btn type="submit" color="primary">เข้าห้องเรียน</v-btn>
+
                         
-                        <v-text-field v-model="email" label="Email" type="email"></v-text-field>
-                        <v-text-field v-model="password" label="Password" type="password"></v-text-field>
-                        <v-btn type="submit" color="primary">Login</v-btn>
                     </form>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr v-for="(s) in students">
-                    <td>{{s.id}}</td>
-                    <td>{{s.title}}</td>
-                    <td>{{s.fname}}</td>
-                    <td>{{s.lname}}</td>
-                    <td>{{s.email}}</td>
-                    <td>{{s.phone}}</td>
-                    <td>
-                      <v-btn @click="edit(s)"
-                        ><v-icon icon="mdi-account-edit"></v-icon
-                      ></v-btn>
-                      <v-btn @click="deleteData(s)"
-                        ><v-icon icon="mdi-account-remove"></v-icon
-                      ></v-btn>
-                    </td>
-                  </tr>
+                  
                 </tbody>
               </table>
             </v-card-text>
@@ -76,7 +61,7 @@
     const app = Vue.createApp({
       data() {
         return {
-          title: "LOGIN",
+          title: "Student",
           email: '',
           password: '',
         };
