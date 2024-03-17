@@ -9,7 +9,7 @@
 }
 
 .content {
-    background-color: #fff;
+    background-color: #800505;
     color: #000;
     border-radius: 6px;
     padding: 1rem;
@@ -30,7 +30,7 @@
     display: block;
     width: 100%;
     text-align: center;
-    background-color: #ffffff;
+    background-color: #000000;
     font-size: 1.2rem;
     font-weight: 600;
     padding: 0.5rem 0;
@@ -45,6 +45,23 @@
     font-size: 1.2rem;
     padding: 0.5rem 0;
     font-weight: 600;
-    border: 2px solid #ffffff;
+    border: 2px solid #000000;
     border-radius: 6px;
+}
+.content div {
+    padding: 10px 20px; /* ขนาดของปุ่ม */
+    background-color: #000000; /* สีพื้นหลังของปุ่ม (สีชมพู) */
+    color: #fff; /* สีข้อความของปุ่ม */
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* อนิเมชันเมื่อโฮเวอร์ปุ่ม */
+}
+h1{
+    color: #000;
+}
+.logopro {
+    border-radius: 50%; /* ทำให้รูปภาพเป็นวงกลม */
+    width: 150px; /* ขนาดของวงกลม */
+    height: 150px; /* ขนาดของวงกลม */
+    object-fit: cover; /* ปรับขนาดรูปภาพให้พอดีกับขนาดของวงกลม */
 }

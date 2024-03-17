@@ -3,6 +3,7 @@ import Nav from './Nav';
 import '../styles/Home.css';
 import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { getFirestore, collection, getDocs } from 'firebase/firestore';
+const logoImage = process.env.PUBLIC_URL + '/pro.png';
 
 const StudentDashboard = () => {
     const [userData, setUserData] = useState(null);
@@ -50,8 +51,10 @@ const StudentDashboard = () => {
             <Nav />
             <div className='container'>
                 <h1>เข้าห้องเรียนกันเถอะ!</h1>
+                <img src={logoImage} alt='Logo' className='logopro' />
+
                 <div className='content'>
-                    <div onClick={handleGoogleSignIn}>กรุณาเข้าสู่ระบบ</div>
+                    <div onClick={handleGoogleSignIn}>เข้าสู่ระบบ</div>
                 </div>
             </div>
         </>
