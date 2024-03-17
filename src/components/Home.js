@@ -49,9 +49,9 @@ const StudentDashboard = () => {
         <>
             <Nav />
             <div className='container'>
-                <h1>Q&A games for fun!! 👍</h1>
+                <h1>เข้าห้องเรียนกันเถอะ!</h1>
                 <div className='content'>
-                    <div onClick={handleGoogleSignIn}>Please login first</div>
+                    <div onClick={handleGoogleSignIn}>กรุณาเข้าสู่ระบบ</div>
                 </div>
             </div>
         </>
