@@ -9,7 +9,6 @@
 }
 
 .content {
-    background-color: #800505;
     color: #000;
     border-radius: 6px;
     padding: 1rem;
@@ -22,7 +21,8 @@
 }
 
 .form-student {
-    padding: 1rem;
+    padding: 9rem;
+    border-radius: 100px;
     text-align: center;
 }
 
@@ -30,7 +30,7 @@
     display: block;
     width: 100%;
     text-align: center;
-    background-color: #000000;
+    background-color: #2da72f;
     font-size: 1.2rem;
     font-weight: 600;
     padding: 0.5rem 0;

@@ -1,0 +1,44 @@
+.form-student {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-student h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    white-space: nowrap; /* ไม่ให้ข้อความขึ้นบรรทัดใหม่ */
+    overflow: hidden; /* ซ่อนข้อความที่เกินขอบเขต */
+    text-overflow: ellipsis; /* แสดง ... สำหรับข้อความที่เกินขอบเขต */
+
+}
+.form-student input[type="text"] {
+    padding: 0.5rem;
+    font-size: 1rem;
+    width: 80%;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-student button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 72%; 
+
+}
+
+@media only screen and (max-width: 600px) {
+    .form-student input[type="text"] {
+        width: 100%;
+    }
+
+    .form-student button {
+        width: 100%;
+    }
+}
