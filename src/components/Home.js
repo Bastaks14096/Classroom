@@ -50,7 +50,7 @@ const StudentDashboard = () => {
         <>
             <Nav />
             <div className='container'>
-                <h1> Mobile and Web Application Development การพัฒนาโปรแกรมประยุกต์สำหรับอุปกรณ์เคลื่อนที่และเว็บ)</h1>
+                <h1> Mobile and Web Application Development </h1>
                 <h1>เข้าห้องเรียนกันเถอะ!</h1>
                 <img src={logoImage} alt='Logo' className='logopro' />
 
