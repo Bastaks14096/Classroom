@@ -111,7 +111,7 @@ const Room = ({ roomId }) => {
                                         {question.answers_list.map((answer, ansIndex) => (
                                             <li key={ansIndex}>
                                                 <p className='user-ans'>Answer: {answer.answer}</p>
-                                                <p className='user-name'>Name: {answer.name}</p>
+                                                <p className='user-name'>{answer.name}</p>
                                             </li>
                                         ))}
                                     </ul>
