@@ -28,7 +28,7 @@ const FormInputData = ()=>{
             <input onChange={(e)=>handleChange(e)} type='text' name='email' placeholder='email'/><br/>
             <input onChange={(e)=>handleChange(e)} type='text' name='section' placeholder='section'/><br/>
            <button onClick={handleAddData}>Sign up</button>
-           <Link to="/student/Dashboard">Go to Classroom</Link>
+           <Link to="/classroom">Go to Classroom</Link>
         </>
     );
 }
