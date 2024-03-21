@@ -21,7 +21,7 @@ const StudentDashboard = () => {
             const db = getFirestore();
 
             // Retrieve data from Firestore collection
-            const userCollection = collection(db, 'teacher'); // Assuming 'teacher' is the collection name
+            const userCollection = collection(db, 'user_teacher'); // Assuming 'teacher' is the collection name
             const querySnapshot = await getDocs(userCollection);
 
             // Process the fetched data

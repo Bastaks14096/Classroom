@@ -46,11 +46,12 @@ const Login = () => {
             const db = getFirestore();
 
             // Retrieve data from Firestore collection
-            const userCollection = collection(db, 'teacher'); // Assuming 'teacher' is the collection name
+            const userCollection = collection(db, 'user_teacher'); // Assuming 'teacher' is the collection name
             const querySnapshot = await getDocs(userCollection);
 
             // Process the fetched data
             let isTeacher = false;
+            console.log(user.email)
             querySnapshot.forEach(doc => {
                 if (user.email === doc.data().email) {
                     isTeacher = true;
@@ -69,6 +70,7 @@ const Login = () => {
             console.error(error);
         }
     };
+    console.log(userData)
 
     const handlePopup = () => {
         setPopup(!popup);

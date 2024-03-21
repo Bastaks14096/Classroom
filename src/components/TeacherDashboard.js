@@ -1,23 +1,47 @@
-import Nav from './Nav'
+import React, { useState, useEffect } from 'react';
+import Nav from './Nav';
 import '../styles/Dashboard.css';
+import { getFirestore, collection, getDocs } from 'firebase/firestore';
+import Room from './Room'; // Import the Room component
 
-const TeacherDashboard = ()=>{
-    return(
+const TeacherDashboard = () => {
+    const [rooms, setRooms] = useState([]);
+
+    useEffect(() => {
+        const fetchRoomData = async () => {
+            try {
+                const db = getFirestore();
+                const roomCollection = collection(db, 'room_sections');
+                const querySnapshot = await getDocs(roomCollection);
+                const roomData = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+                setRooms(roomData);
+            } catch (error) {
+                console.error('Error fetching room data:', error);
+            }
+        };
+
+        fetchRoomData();
+    }, []);
+
+    return (
         <>
-        <Nav/>
-        <div className='dashboard'>
-            <div className='col'>
-                <button>Create question</button>
-                <form>
-                    <h1>Create new question</h1>
-                    <label>Question</label>
-                    <input type='text' required></input>
-                    <button>Create</button>
-                </form>
+            <Nav />
+            <div className='dashboard'>
+                <>
+                    <h1>ห้องเรียนทั้งหมด</h1>
+                    <div className='room-list'>
+                        {rooms.length > 0 ? (
+                            rooms.map(room => (
+                                <Room key={room.id} roomId={room.id} />
+                            )).reverse()
+                        ) : (
+                            <div>ไม่มีห้อง...</div>
+                        )}
+                    </div>
+                </>
             </div>
-        </div>
         </>
     );
-}
+};
 
 export default TeacherDashboard;

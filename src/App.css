@@ -6,7 +6,7 @@
 }
 
 body {
-  background-color: #070F2B;
+  background-color: #ebebeb;
 }
 
 .App {
@@ -37,6 +37,10 @@ body {
 
 .App-link {
   color: #61dafb;
+}
+
+::-webkit-scrollbar {
+  width: 0;
 }
 
 @keyframes App-logo-spin {

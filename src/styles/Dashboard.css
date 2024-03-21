@@ -1,5 +1,11 @@
 .dashboard {
     position: static;
     transform: none;
-    background-color: red;
+    color: #000000;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 1rem;
 }
+
+
+
