@@ -1,6 +1,7 @@
 import Nav from './Nav';
 import { useState } from 'react';
-import '../styles/Dashboard.css';
+import '../styles/Dashboard.css'
+import Attendance from './Attendance';
 
 const TeacherDashboard = () => {
     const [question, setQuestion] = useState('');
@@ -18,9 +19,11 @@ const TeacherDashboard = () => {
 
     return (
         <>
-            <Nav />
+            <Attendance/>
+
             <div className='dashboard'>
                 <div className='col'>
+                    
                     <button className='create-question-btn'>Create Question</button>
                     <form onSubmit={handleSubmit} className='create-question-form'>
                         <h1>Create New Question</h1>
@@ -37,6 +40,7 @@ const TeacherDashboard = () => {
                     </form>
                 </div>
             </div>
+            
         </>
     );
 };
