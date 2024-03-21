@@ -48,7 +48,7 @@ const StudentDashboard = () => {
 
     return (
         <>
-            <Nav />
+
             <div className='container'>
                 <h1> Mobile and Web Application Development </h1>
                 <h1>เข้าห้องเรียนกันเถอะ!</h1>

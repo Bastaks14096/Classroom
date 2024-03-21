@@ -103,6 +103,7 @@ const Attendance = () => {
                     
                 </tbody>
             </table>
+            <button className='create-question-btn'>Create Question</button>
         </div>
     );
 };
