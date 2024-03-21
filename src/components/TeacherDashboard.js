@@ -2,6 +2,7 @@ import Nav from './Nav';
 import { useState } from 'react';
 import '../styles/Dashboard.css'
 import Attendance from './Attendance';
+import RandomName from './RandomName';
 
 const TeacherDashboard = () => {
     const [question, setQuestion] = useState('');
@@ -40,8 +41,9 @@ const TeacherDashboard = () => {
                     </form>
                 </div>
             </div>
-            
+            <RandomName/>
         </>
+        
     );
 };
 

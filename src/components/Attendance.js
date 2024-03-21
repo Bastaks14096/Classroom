@@ -41,11 +41,17 @@ const Attendance = () => {
 
         }
     }
-    console.log(editId)
+    const handleRandom = () => {
+        const randomIndex = Math.floor(Math.random() * data.length);
+        const randomStudent = data[randomIndex];
+        setData([randomStudent]); // กำหนดข้อมูลนักเรียนที่สุ่มได้ให้แสดงเพียงข้อมูลเดียวในตาราง
+    };
+    
 
     return (
         <div>
             <h2>Random Name:</h2>
+            <button onClick={handleRandom}>Random</button>
             <table>
                 <thead>
                     <tr>
