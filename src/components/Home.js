@@ -7,7 +7,6 @@ import { getFirestore, collection, getDocs } from 'firebase/firestore';
 const StudentDashboard = () => {
     const [userData, setUserData] = useState(null);
 
-
     const handleGoogleSignIn = async () => {
         const auth = getAuth();
         const provider = new GoogleAuthProvider();

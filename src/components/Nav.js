@@ -17,6 +17,8 @@ const Login = () => {
         const unsubscribe = auth.onAuthStateChanged(user => {
             if (user) {
                 setUserData(user);
+                localStorage.setItem('userEmail', user.email);
+                localStorage.setItem('userName', user.displayName);
             } else {
                 setUserData(null);
             }
@@ -70,8 +72,6 @@ const Login = () => {
             console.error(error);
         }
     };
-    console.log(userData)
-
     const handlePopup = () => {
         setPopup(!popup);
     }

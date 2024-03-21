@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import Nav from './Nav';
 import '../styles/Dashboard.css';
 import { getFirestore, collection, getDocs } from 'firebase/firestore';
 import Room from './Room'; // Import the Room component
+import Nav from './Nav';
 
 const TeacherDashboard = () => {
     const [rooms, setRooms] = useState([]);
@@ -18,14 +18,13 @@ const TeacherDashboard = () => {
             } catch (error) {
                 console.error('Error fetching room data:', error);
             }
-        };
-
+        }
         fetchRoomData();
-    }, []);
+    }, [rooms]);
 
     return (
         <>
-            <Nav />
+            <Nav/>
             <div className='dashboard'>
                 <>
                     <h1>ห้องเรียนทั้งหมด</h1>
