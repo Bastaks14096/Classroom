@@ -1,12 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import '../styles/Room.css';
-import { getFirestore, doc, getDoc } from 'firebase/firestore';
+import { getFirestore, doc, getDoc, collection, getDocs, updateDoc } from 'firebase/firestore';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
-import axios from 'axios';
-
-const port = process.env.Environment || 'http://localhost:5000'
-// const port = 'https://classroom-api-three.vercel.app';
+import '../styles/Room.css';
 
 const RoomStudent = ({ roomId }) => {
     const [room, setRoom] = useState(null);
@@ -15,10 +11,10 @@ const RoomStudent = ({ roomId }) => {
     const [newAnswer, setNewAnswer] = useState('');
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const db = getFirestore();
 
     const fetchRoomData = async () => {
         try {
-            const db = getFirestore();
             const roomDocRef = doc(db, 'room_sections', roomId);
             const roomSnapshot = await getDoc(roomDocRef);
             if (roomSnapshot.exists()) {
@@ -38,23 +34,41 @@ const RoomStudent = ({ roomId }) => {
 
     const ansQuestion = async (event) => {
         event.preventDefault(); // Prevent default form submission behavior
+        const question = questionText;
+        const email = localStorage.getItem('userEmail'); // Fix typo here
+        const name = localStorage.getItem('userName');
+        const answer = newAnswer;
+
+        const roomSectionsRef = collection(db, "room_sections");
         try {
-            const response = await axios.post(`${port}/api/room/answer`, {
-                question:questionText,
-                email: localStorage.getItem('userEmil'),
-                name: localStorage.getItem('userName'),
-                answer: newAnswer
-            });
-            if (response.status === 200) {
-                alert('Answer submitted successfully.');
-                setNewAnswer('');
-                fetchRoomData(); // Fetch updated room data after successful submission
-            } else {
-                throw new Error('Failed to submit answer.');
+            const querySnapshot = await getDocs(roomSectionsRef);
+            let answerAdded = false;
+
+            for (const document of querySnapshot.docs) {
+                const docRef = doc(db, "room_sections", document.id);
+                const data = document.data();
+                let questionsUpdated = false;
+
+                data.questions.forEach((qItem, index) => {
+                    if (qItem.question === question) {
+                        // Found the question, now add the answer to its answers_list
+                        data.questions[index].answers_list.push({ name, email, answer });
+                        questionsUpdated = true;
+                    }
+                });
+
+                if (questionsUpdated) {
+                    // If the questions were updated, update the document in Firestore
+                    await updateDoc(docRef, {
+                        questions: data.questions
+                    });
+                    console.log(`Answer added to question: ${question}`);
+                    answerAdded = true;
+                    break; // If you only need to add the answer to the first matching question found
+                }
             }
         } catch (error) {
-            console.error('Error submitting answer:', error);
-            alert('Failed to submit answer. Please try again.');
+            console.error("Error adding answer: ", error);
         }
     };
 
