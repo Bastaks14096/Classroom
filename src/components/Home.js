@@ -3,11 +3,11 @@ import Nav from './Nav';
 import '../styles/Home.css';
 import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { getFirestore, collection, getDocs } from 'firebase/firestore';
+import { useNavigate } from 'react-router-dom';
 const logoImage = process.env.PUBLIC_URL + '/pro.png';
 
 const StudentDashboard = () => {
     const [userData, setUserData] = useState(null);
-
 
     const handleGoogleSignIn = async () => {
         const auth = getAuth();
@@ -22,7 +22,7 @@ const StudentDashboard = () => {
             const db = getFirestore();
 
             // Retrieve data from Firestore collection
-            const userCollection = collection(db, 'teacher'); // Assuming 'teacher' is the collection name
+            const userCollection = collection(db, 'user_teacher'); // Assuming 'teacher' is the collection name
             const querySnapshot = await getDocs(userCollection);
 
             // Process the fetched data
@@ -57,7 +57,6 @@ const StudentDashboard = () => {
                 <div className='content'>
                     <div onClick={handleGoogleSignIn}>เข้าสู่ระบบ</div>
                 </div>
-
             </div>
         </>
     );
