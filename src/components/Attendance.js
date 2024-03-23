@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { collection, doc, getDocs, updateDoc, getFirestore } from 'firebase/firestore';
-
+import '../styles/Attendance.css'
 const Attendance = () => {
     const [form, setForm] = useState({});
     const [data, setData] = useState([]);
@@ -11,7 +11,7 @@ const Attendance = () => {
 
     useEffect(() => {
         loadData(); // Call the 'loadData' function inside useEffect
-    }, [data]);
+    }, []);
 
     const handleChange = (e) => {
         setForm({
@@ -49,7 +49,7 @@ const Attendance = () => {
     };
 
     return (
-        <div>
+        <div className='student-list'>
             <h2>Random Name:</h2>
             <button onClick={handleRandom}>Random</button>
             <table>
@@ -93,7 +93,6 @@ const Attendance = () => {
                     ))}
                 </tbody>
             </table>
-            <button className='create-question-btn'>Create Question</button>
         </div>
     );
 };

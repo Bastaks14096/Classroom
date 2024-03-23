@@ -4,7 +4,7 @@ import '../styles/Home.css';
 import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { getFirestore, collection, getDocs } from 'firebase/firestore';
 
-const StudentDashboard = () => {
+const Home = () => {
     const [userData, setUserData] = useState(null);
 
     const handleGoogleSignIn = async () => {
@@ -22,6 +22,8 @@ const StudentDashboard = () => {
             // Retrieve data from Firestore collection
             const userCollection = collection(db, 'user_teacher'); // Assuming 'teacher' is the collection name
             const querySnapshot = await getDocs(userCollection);
+            const studentCollection = collection(db, 'user_student'); // Assuming 'teacher' is the collection name
+            const queryStuSnapshot = await getDocs(studentCollection);
 
             // Process the fetched data
             let isTeacher = false;
@@ -29,16 +31,28 @@ const StudentDashboard = () => {
                 if (user.email === doc.data().email) {
                     isTeacher = true;
                 }
+                console.log(doc.data().email)
+            });
+
+            let isStudent = false;
+            queryStuSnapshot.forEach(doc => {
+                if (user.email === doc.data().email) {
+                    isStudent = true;
+                    
+                }
+                console.log(doc.data().email)
             });
 
             // Redirect based on user's role
             if (isTeacher) {
                 window.location.href = '/teacher/Dashboard';
-            } else {
+                setUserData(user);
+            } else if(isStudent) {
                 window.location.href = '/student/Dashboard';
+                setUserData(user);
+            }else{
+                alert('ไม่พบผู้ใช้')
             }
-
-            setUserData(user);
         } catch (error) {
             console.error(error);
         }
@@ -57,4 +71,4 @@ const StudentDashboard = () => {
     );
 }
 
-export default StudentDashboard;
+export default Home;

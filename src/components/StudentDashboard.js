@@ -3,6 +3,7 @@ import '../styles/Dashboard.css';
 import { getFirestore, collection, getDocs } from 'firebase/firestore';
 import RoomStudent from './RoomStudent';
 import Nav from './Nav';
+import FormInputData from './FormInputData';
 
 const StudentDashboard = ({userData}) => {
     const [rooms, setRooms] = useState([]);
@@ -28,6 +29,7 @@ const StudentDashboard = ({userData}) => {
             <Nav/>
             <div className='dashboard'>
                 <>
+                    <FormInputData/>
                     <h1>ห้องเรียนทั้งหมด</h1>
                     <div className='room-list'>
                         {rooms.length > 0 ? (
