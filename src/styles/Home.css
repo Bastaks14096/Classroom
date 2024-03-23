@@ -1,43 +1,50 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: #f8f9fa; /* สีพื้นหลัง */
-}
-
-h1 {
-    font-size: 1.5rem; /* ขนาดตัวอักษร */
-    text-align: center; /* จัดตำแหน่งตัวอักษรให้อยู่ตรงกลาง */
-    margin-bottom: 1rem; /* ระยะห่างด้านล่างของข้อความ */
-    color: #343a40; /* สีข้อความ */
-    white-space: normal; /* ให้ข้อความขึ้นบรรทัดใหม่ */
-    overflow: hidden; /* ซ่อนข้อความที่เกินขอบเขต */
-    text-overflow: ellipsis; /* แสดง ... สำหรับข้อความที่เกินขอบเขต */
-}
-
-
-.logopro {
-    width: 150px;
-    height: auto;
-    margin-bottom: 1rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #000000;
+    text-align: center;
+    
 }
 
 .content {
+    background-color: #fff;
+    color: #000000;
+    border-radius: 6px;
+    padding: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
 }
 
-.content div {
-    padding: 0.5rem 1rem;
-    background-color: #007bff; /* สีปุ่ม */
+.form-student {
+    padding: 1rem;
+    text-align: center;
+}
+
+.form-student button {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background-color: #ffffff;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 0.5rem 0;
     color: #fff;
-    border-radius: 5px;
+    margin-top: 0.5rem;
+    border-radius: 6px;
     cursor: pointer;
 }
 
-.content div:hover {
-    background-color: #0056b3; /* สีเมื่อโฮเวอร์ */
+.form-student input{
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 0.5rem 0;
+    font-weight: 600;
+    border: 2px solid #ffffff;
+    border-radius: 6px;
 }

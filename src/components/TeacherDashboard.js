@@ -1,41 +1,43 @@
-import Nav from './Nav';
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/Dashboard.css';
+import { getFirestore, collection, getDocs } from 'firebase/firestore';
+import Room from './Room'; // Import the Room component
+import Nav from './Nav';
 
 const TeacherDashboard = () => {
-    const [question, setQuestion] = useState('');
+    const [rooms, setRooms] = useState([]);
 
-    const handleInputChange = (e) => {
-        setQuestion(e.target.value);
-    };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // เพิ่มโค้ดส่วนการสร้างคำถาม
-        console.log('Create question:', question);
-        // เพิ่มโค้ดส่วนส่งคำถามไปยังเซิร์ฟเวอร์
-    };
+    useEffect(() => {
+        const fetchRoomData = async () => {
+            try {
+                const db = getFirestore();
+                const roomCollection = collection(db, 'room_sections');
+                const querySnapshot = await getDocs(roomCollection);
+                const roomData = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+                setRooms(roomData);
+            } catch (error) {
+                console.error('Error fetching room data:', error);
+            }
+        }
+        fetchRoomData();
+    }, []);
 
     return (
         <>
-            <Nav />
+            <Nav/>
             <div className='dashboard'>
-                <div className='col'>
-                    <button className='create-question-btn'>Create Question</button>
-                    <form onSubmit={handleSubmit} className='create-question-form'>
-                        <h1>Create New Question</h1>
-                        <label htmlFor='question'>Question</label>
-                        <input
-                            type='text'
-                            id='question'
-                            name='question'
-                            value={question}
-                            onChange={handleInputChange}
-                            required
-                        />
-                        <button type='submit'>Create</button>
-                    </form>
-                </div>
+                <>
+                    <h1>ห้องเรียนทั้งหมด</h1>
+                    <div className='room-list'>
+                        {rooms.length > 0 ? (
+                            rooms.map(room => (
+                                <Room key={room.id} roomId={room.id} />
+                            )).reverse()
+                        ) : (
+                            <div>ไม่มีห้อง...</div>
+                        )}
+                    </div>
+                </>
             </div>
         </>
     );
