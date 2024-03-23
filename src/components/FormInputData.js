@@ -53,8 +53,7 @@ const FormInputData = () => {
             <input onChange={handleChange} type='text' name='name' placeholder='Name' value={form.name} /><br />
             <input onChange={handleChange} type='text' name='email' placeholder='Email' value={form.email} /><br />
             <input onChange={handleChange} type='text' name='section' placeholder='Section' value={form.section} /><br />
-            <button onClick={handleAddData}>Add Student</button>
-            <Link to="/classroom">Go to Classroom</Link>
+            <button onClick={handleAddData}>เข้าร่วม</button>
         </>
     );
 }
