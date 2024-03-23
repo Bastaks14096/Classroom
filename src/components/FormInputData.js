@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../styles/Frominput.css';
 import { collection, addDoc, getFirestore, doc, getDoc, updateDoc } from 'firebase/firestore'; // Import necessary Firestore modules
 import { Link } from 'react-router-dom';
 
@@ -50,10 +51,38 @@ const FormInputData = () => {
 
     return (
         <>
-            <input onChange={handleChange} type='text' name='name' placeholder='Name' value={form.name} /><br />
-            <input onChange={handleChange} type='text' name='email' placeholder='Email' value={form.email} /><br />
-            <input onChange={handleChange} type='text' name='section' placeholder='Section' value={form.section} /><br />
-            <button onClick={handleAddData}>เข้าร่วม</button>
+            <h2>เพิ่มนักศึกษา</h2>
+            <input 
+                onChange={handleChange} 
+                type='text' 
+                name='name' 
+                placeholder='Name' 
+                value={form.name} 
+                className='form-input' // Apply the form-input class
+            /><br />
+            <input 
+                onChange={handleChange} 
+                type='text' 
+                name='email' 
+                placeholder='Email' 
+                value={form.email} 
+                className='form-input' // Apply the form-input class
+            /><br />
+            <input 
+                onChange={handleChange} 
+                type='text' 
+                name='section' 
+                placeholder='Section' 
+                value={form.section} 
+                className='form-input' // Apply the form-input class
+            /><br />
+            <button 
+                onClick={handleAddData} 
+                className='form-button' // Apply the form-button class
+            >
+                เข้าร่วมห้องเรียน
+            </button>
+            
         </>
     );
 }

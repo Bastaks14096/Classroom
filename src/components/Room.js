@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import '../styles/Room.css';
+import '../styles/Frominput.css';
 import { getFirestore, doc, getDoc, updateDoc, arrayUnion} from 'firebase/firestore';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
